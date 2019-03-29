@@ -1,0 +1,13 @@
+  {
+    "realm": "teste_cecilia",
+    "auth-server-url": "http://keycloak.qa.pbh/auth",
+    "ssl-required": "external",
+    "resource": "frontend_adptr_keycloak",
+    "verify-token-audience": true,
+    "credentials": {
+      "secret": "6e192fb8-f54e-4722-b5f5-417bc887561b"
+    },
+    "use-resource-role-mappings": true,
+    "confidential-port": 0,
+    "policy-enforcer": {}
+  }
