@@ -1,0 +1,9 @@
+{
+    "realm": "PBH",
+    "auth-server-url": "https://acesso-st.pbh.gov.br/auth",
+    "ssl-required": "external",
+    "resource": "SG",
+    "public-client": true,
+    "confidential-port": 0,
+    "use-resource-role-mappings": true
+  }
