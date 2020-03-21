@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@prodabel/piweb-lib-vue": "^1.0.2",
-    "@prodabel/vue-keycloak-adapter": "^2.0.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.4.0",

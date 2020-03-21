@@ -52,6 +52,14 @@ export default {
             return itens;
 
         }
+    },
+    mounted() {
+//        setInterval(() => {
+//            this.$store.dispatch("REFRESH_TOKEN").then(() => {
+//                // eslint-disable-next-line no-console
+//                console.log(this.$store.getters.token);
+//            });
+//        }, 7000);
     }
 }
 </script>
