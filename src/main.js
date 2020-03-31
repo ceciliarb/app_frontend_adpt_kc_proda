@@ -37,19 +37,19 @@ router.onError((err) => {
 Vue.use(keycloak, {
     router, 
     store, 
-    seconds_to_refresh: 10,
+    seconds_to_refresh: 5,
     verbose: true,
-    // authorize_disabled: true,    // realiza redirecionamentos e controle de permissao nas rotas automaticamente
-    // autorefresh_disabled: true,  // realiza o refresh do token automatimente de seconds_to_refresh a seconds_to_refresh
+    // authorize_disabled: false,    // realiza redirecionamentos e controle de permissao nas rotas automaticamente
+    // autorefresh_disabled: false,  // realiza o refresh do token automatimente de seconds_to_refresh a seconds_to_refresh
     options: { 
         // as opcoes onLoad e checkLoginIframe so serao consideradas se authorize_disabled: true (default ehh false)
-        // caso contrario, serao setadas com o valor null e false, respectivamente
+        // caso contrario, serao setadas com o valor check-sso e true, respectivamente
         // a opcao promiseType eh sempre setada internamente com o valor 'native'
         // onLoad: 'check-sso', 
-        // checkLoginIframe: false,
-        redirectUri: window.location.protocol + '//' + window.location.host + window.location.pathname 
+        // checkLoginIframe: true,
+        // redirectUri: window.location.protocol + '//' + window.location.host + window.location.pathname 
     },
-    optionsConst: window.location.protocol + '//' + window.location.host + '/keycloak.json', 
+    optionsConst: window.location.protocol + '//' + window.location.host + '/keycloak2.json', 
     // se backend_url e userinfo_endpoint forem setadas com valores validos, o adapter recuperara 
     // informacoes do usuario vindas do backend, de seconds_to_refresh a seconds_to_refresh
     // backend_url: 'http://localhost:8080',
@@ -60,10 +60,11 @@ Vue.use(keycloak, {
         'any': ['inicio', '403', '404'],
         'logged': ['home', 'teste1']
     },
+    redirect_url_logout: `http://localhost:8000`,
     // callback chamada quando ha falha para recuperar token do keycloak no processo de login
     // authErrorCallback: () => { window.location.href = 'http://www.google.com' },
     // callback chamada quando ha falha para atualizar o token, utilizando um refresh token
-    // refreshErrorCallback: () => store.dispatch('LOGOUT_REQUEST'),
+    refreshErrorCallback: () => store.dispatch('LOGOUT_REQUEST'),
 });
 
 new Vue({
